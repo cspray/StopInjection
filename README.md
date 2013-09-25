@@ -80,7 +80,7 @@ echo $Printer->printReport($BuildReport);
 
 ## Errata
 
-We have strived for this codebase to be thoroughly tested and to be as accurate as humanly possible. However, humans do make mistakes and last I checked I fall into that category. If you find something wrong with the analysis algorithm, think that a analysis detail is wrong or have a better suggestion for fixing a vulnerability **please** [submit an issue](https://github.com/cspray/StopInjection/issues/new) to this repository. I will strive to ensure that any errors found will be quickly fixed.
+We strive for this codebase to be thoroughly tested and to be as accurate as humanly possible. However, humans do make mistakes and last I checked I fall into that category. If you find something wrong with the analysis algorithm, think that an analysis detail is wrong or have a better suggestion for fixing a vulnerability **please** [submit an issue](https://github.com/cspray/StopInjection/issues/new) to this repository. I will strive to ensure that any errors found or reasonable suggestions will be quickly responded to and implemented.
 
 ## Contributors
 
