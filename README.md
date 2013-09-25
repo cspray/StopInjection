@@ -36,7 +36,7 @@ Through `composer.json`:
 
 ### To contribute
 
-I highly recommend that you fork this repository on GitHub and then read through the [CONTRIBUTING]() doc.
+I highly recommend that you fork this repository on GitHub and then read through the [CONTRIBUTING](https://github.com/cspray/StopInjection/blob/master/CONTRIBUTING.md) doc.
 
 ## Disclaimer
 

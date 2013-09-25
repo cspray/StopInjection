@@ -9,3 +9,7 @@ I encourage people to contribute to the project and will do whatever I can to ma
 ## Third party dependencies
 
 I intentionally have relatively few dependencies on third party libraries in this project. If your pull request will introduce any additional dependencies on third-party libraries **please** [get in touch with me](mailto:cspray+github@gmail.com) before sending the PR.
+
+## Pull Request Branches
+
+It is highly recommended that you do not send your fork's master branch as a pull request. Please ensure that all pull requests sent to `cspray/StopInjection` are on feature branches. This is really for your own benefit and will ensure that you can keep your fork clean and up-to-date.
