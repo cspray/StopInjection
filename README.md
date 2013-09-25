@@ -54,12 +54,39 @@ StopInjection is designed in such a way that you should be able to use it from t
 
 #### Through CLI
 
-
+*This has not yet been implemented*
 
 #### As a library in your own applications or build process
 
+You can also use this library outside the CLI tool and can integrate with your own static analysis appls or build processes. We assume in the example usages below that you have autoloading appropriate setup.
+
+```php
+<?php
+
+use \StopInjection\Analyzer\Printer\TextPrinter;
+use \StopInjection\Extract\Report as ExtractReport;
+use \StopInjection\Extract\Analyzer as ExtractAnalyzer;
+
+$BuildReport = new ExtractReport('/path/file.php', \time());
+$Analyzer = new ExtractAnalyzer(new \PHPParser_Parser(), new \PHPParser_NodeTraverser());
+
+$code = getCodeFromApp(); // this is provided by you
+
+$Analyzer->analyze($code, $BuildReport);
+
+$Printer = new TextPrinter();
+echo $Printer->printReport($BuildReport);
+```
+
 ## Errata
 
-
+We have strived for this codebase to be thoroughly tested and to be as accurate as humanly possible. However, humans do make mistakes and last I checked I fall into that category. If you find something wrong with the analysis algorithm, think that a analysis detail is wrong or have a better suggestion for fixing a vulnerability **please** [submit an issue](https://github.com/cspray/StopInjection/issues/new) to this repository. I will strive to ensure that any errors found will be quickly fixed.
 
 ## Contributors
+
+Charles Sprayberry
+- title: Lead Developer
+- blog: [http://cspray.github.io/](http://cspray.github.io/)
+- contact: sprayfire.framework@gmail.com
+- twitter: [@charlesspray](https://twitter.com/charlesspray)
+
