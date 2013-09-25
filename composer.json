@@ -1,0 +1,23 @@
+{
+    "name": "cspray/stop-global-injection",
+    "description": "A PHP static analysis library that can detect insecure use of the extract function",
+    "keywords": ["superglobal-injection", "static-analysis"],
+    "authors": [
+        {
+            "name": "Charles Sprayberry",
+            "homepage": "http://cspray.github.io",
+            "email": "cspray@gmail.com",
+            "role": "Benevolent Dictator for Life"
+        }
+    ],
+    "require": {
+        "nikic/php-parser": "v0.9.4",
+        "cspray/spraysole": "0.1.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "StopGlobalInjection\\": "src/",
+            "StopGlobalInjectionTest\\": "tests/"
+        }
+    }
+}
