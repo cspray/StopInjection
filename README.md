@@ -1,5 +1,7 @@
 # StopInjection
 
+> This library is still under heavy development and has not had any version released yet.
+
 StopInjection is a project intended to:
 
 - Help educate developers about security vulnerabilities that may be present in their codebase
