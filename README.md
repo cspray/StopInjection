@@ -42,7 +42,7 @@ The primary developer and contributors to this project and codebase **make no gu
 
 You assume all risk and liability from the use of this source code and implementing any changes or refactorings suggested by this project.
 
-While we strive to have a thoroughly tested, well reviewed codebase that is capable of detecting these vulnerabilities please review the codebase before using the library or the command line tool, particularly in a command line environment.
+While we strive to have a thoroughly tested, well reviewed codebase that is capable of detecting these vulnerabilities please review the codebase before using the library or the command line tool, particularly in a production environment.
 
 ## StopInjection\Extract
 
@@ -58,9 +58,8 @@ StopInjection is designed in such a way that you should be able to use it from t
 
 #### As a library in your own applications or build process
 
-
-### Example Output
-
+## Errata
 
 
 
+## Contributors
