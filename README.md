@@ -12,6 +12,10 @@ Primarily StopInjection is focused on vulnerabilities that are the result of use
 
 ## Installation
 
+### Usage of the library
+
+> Please note that as StopInjection has had no release this method of installation is not yet supported.
+
 It is recommended that you use [Composer](https://getcomposer.org) to install this library.
 
 Directly from command line:
@@ -29,6 +33,10 @@ Through `composer.json`:
     }
 }
 ```
+
+### To contribute
+
+I highly recommend that you fork this repository on GitHub and then read through the [CONTRIBUTING]() doc.
 
 ## Disclaimer
 
@@ -58,7 +66,7 @@ StopInjection is designed in such a way that you should be able to use it from t
 
 #### As a library in your own applications or build process
 
-You can also use this library outside the CLI tool and can integrate with your own static analysis appls or build processes. We assume in the example usages below that you have autoloading appropriate setup.
+You can also use this library outside the CLI tool and can integrate with your own static analysis app or build processes. We assume in the example usages below that you have autoloading appropriate setup.
 
 ```php
 <?php
