@@ -2,6 +2,7 @@
     "name": "cspray/stop-injection",
     "description": "A PHP static analysis library designed to detect possible vulnerabilities in source code",
     "keywords": ["code-injection", "static-analysis", "security"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Charles Sprayberry",
