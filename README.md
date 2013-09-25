@@ -78,6 +78,50 @@ $Printer = new TextPrinter();
 echo $Printer->printReport($BuildReport);
 ```
 
+Assuming that the `/path/file.php` has three usages of `extract`, one secure and two insecure then you should see output similar to the following:
+
+```shell
+Extract Analysis Report
+    A report to analyze vulnerable usages of extract function
+
+File analyzed: /path/file.php
+Report run date: 2013-01-01 01:00:00
+
+Total usages found:         3
+    Secures usages:         1
+    Insecure usages:        2
+    Susceptible usages:     0
+
+
+Secure usages
+================================================================================
+
+#1 on line 10
+- A detail explaining why we believe this is secure usage
+
+
+Insecure usages
+================================================================================
+
+#1 on line 35
+- A detail explaining why we think this might be susceptible and warrants further inspection
+- A detail explaining why we think the usage is insecure after more inspection
+
+#2 on line 50
+- A detail explaining why we think this might be susceptible and warrants further inspection
+- A detail explaining why we think the usage is insecure after more inspection
+- A detail explaining why we think extracting a superglobal is a codesmell with a suggestion to read /docs/extract
+
+
+Susceptible usages
+================================================================================
+
+No usage of this type found
+
+
+End of report
+```
+
 ## Errata
 
 We strive for this codebase to be thoroughly tested and to be as accurate as humanly possible. However, humans do make mistakes and last I checked I fall into that category. If you find something wrong with the analysis algorithm, think that an analysis detail is wrong or have a better suggestion for fixing a vulnerability **please** [submit an issue](https://github.com/cspray/StopInjection/issues/new) to this repository. I will strive to ensure that any errors found or reasonable suggestions will be quickly responded to and implemented.
