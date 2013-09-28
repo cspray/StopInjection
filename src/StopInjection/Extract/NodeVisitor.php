@@ -19,7 +19,7 @@ class NodeVisitor extends \PHPParser_NodeVisitorAbstract {
 
     public function enterNode(\PHPParser_Node $Node) {
         if ($Node instanceof \PHPParser_Node_Expr_FuncCall) {
-            if ((string) $Node->name === 'extract') {
+            if ($Node->name instanceof \PHPParser_Node_Name && (string) $Node->name === 'extract') {
                 $this->nodes[] = $Node;
             }
         }
