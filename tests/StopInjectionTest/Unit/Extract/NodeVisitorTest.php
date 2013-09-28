@@ -69,5 +69,27 @@ PHP;
         $this->assertSame($expected, $data);
     }
 
+    public function testAnalyzingExtractDynamicallyCalledDoesNotCauseErrors() {
+        $code = <<<'PHP'
+<?php
+
+$f = 'extract';
+$f([]);
+PHP;
+        $statements = $this->Parser->parse($code);
+        $this->Traverser->addVisitor($Visitor = new ExtractNodeVisitor());
+        $this->Traverser->traverse($statements);
+
+        $data = [];
+        foreach($Visitor->getExtractFunctionNodes() as $Node) {
+            $data[(string) $Node->name] = $Node->getLine();
+        }
+
+        $expected = [];
+
+        $this->assertSame($expected, $data);
+
+    }
+
 
 }
