@@ -5,6 +5,8 @@
  * 
  * @author  Charles Sprayberry
  * @license See LICENSE in source root
+ * @version 0.1.0
+ * @since   0.1.0
  */
 
 namespace StopInjection\Analyzer;
@@ -20,8 +22,16 @@ interface Usage {
      */
     public function getNode();
 
+    /**
+     * Should return a string represented by the constants associated to this
+     *
+     * @return string
+     */
     public function getSecurityLevel();
 
+    /**
+     * @return array
+     */
     public function getAnalysisDetails();
 
 }

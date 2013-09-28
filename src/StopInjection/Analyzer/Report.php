@@ -2,7 +2,7 @@
 
 /**
  * An interface representing the information the StopInjection library was able
- * to parse from the supplied file; typically implementations should be highly
+ * to parse from a supplied file; typically implementations should be highly
  * specific to a targeted vulnerability.
  * 
  * @author  Charles Sprayberry
@@ -16,12 +16,18 @@ namespace StopInjection\Analyzer;
 interface Report {
 
     /**
-     * Add the usage of a statement or feature that may be a security vulnerability
+     * Return the name of the report.
      *
-     * @param \StopInjection\Analyzer\Usage $Usage
-     * @return void
+     * @return string
      */
-    public function addUsage(Usage $Usage);
+    public function getName();
+
+    /**
+     * Return a description of what this report
+     *
+     * @return string
+     */
+    public function getDescription();
 
     /**
      * The absolute path to the file that this Report was generated for
@@ -38,11 +44,28 @@ interface Report {
     public function getTimestamp();
 
     /**
+     * Add the usage of a statement or feature that may be a security vulnerability
+     *
+     * @param \StopInjection\Analyzer\Usage $Usage
+     * @return void
+     */
+    public function addUsage(Usage $Usage);
+
+    /**
      * Get all the Usage for the Report
      *
      * @return \StopInjection\Analyzer\UsageCollection
      */
     public function getAllUsage();
+
+
+    /**
+     * Return the Usage that was determined to be very likely vulnerable to malicious
+     * attacks.
+     *
+     * @return \StopInjection\Analyzer\UsageCollection
+     */
+    public function getInsecureUsage();
 
     /**
      * Return the Usage that was determined to be secure for the vulnerability
@@ -59,27 +82,5 @@ interface Report {
      * @return \StopInjection\Analyzer\UsageCollection
      */
     public function getSusceptibleUsage();
-
-    /**
-     * Return the Usage that was determined to be very likely vulnerable to malicious
-     * attacks.
-     *
-     * @return \StopInjection\Analyzer\UsageCollection
-     */
-    public function getInsecureUsage();
-
-    /**
-     * Return the name of the report.
-     *
-     * @return string
-     */
-    public function getName();
-
-    /**
-     * Return a description of what this report
-     *
-     * @return string
-     */
-    public function getDescription();
 
 } 

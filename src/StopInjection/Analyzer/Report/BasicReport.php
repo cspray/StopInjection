@@ -1,6 +1,8 @@
 <?php
 
 /**
+ * An abstract report that implements the basic functionality for storing file
+ * and runtime meta data as well as the Analyzer\Usage associated with the report.
  * 
  * @author  Charles Sprayberry
  * @license See LICENSE in source root
@@ -16,16 +18,32 @@ use \StopInjection\Analyzer\Usage\Collection;
 
 abstract class BasicReport implements SIReport {
 
+    /**
+     *
+     *
+     * @property string
+     */
     private $file;
+
+    /**
+     * The Unix timestamp that the report was run
+     *
+     * @property integer
+     */
     private $timestamp;
+
     /**
      * @property \StopInjection\Analyzer\UsageCollection[]
      */
     private $collections;
 
+    /**
+     * @param string $file
+     * @param integer $unixTimestamp
+     */
     public function __construct($file, $unixTimestamp) {
         $this->file = (string) $file;
-        $this->timestamp = (int) $unixTimestamp;
+        $this->timestamp = (integer) $unixTimestamp;
         $this->collections = [
             SIUsage::SECURE_USAGE => new Collection(),
             SIUsage::INSECURE_USAGE => new Collection(),
@@ -63,6 +81,9 @@ abstract class BasicReport implements SIReport {
 
     /**
      * Get all the Usage for the Report
+     *
+     * We are creating a new collection and merging every time, as opposed to
+     * caching the initial version,
      *
      * @return \StopInjection\Analyzer\UsageCollection
      */

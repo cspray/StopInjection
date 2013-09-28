@@ -21,6 +21,7 @@ class Analyzer implements SIAnalyzer {
     const VERSION = '0.1.0';
 
     // These constants help determine what analysis details we assign to each usage
+    // @todo These constants and the functionality surrounding them need to be refactored into their own module
 
     const SEC_USING_EXTR_SKIP = 'secure_extr_skip';
 
@@ -53,6 +54,12 @@ class Analyzer implements SIAnalyzer {
      */
     private $NodeVisitor;
 
+    /**
+     * These are listed here to allow detection of using these as actual string
+     * literals as extract array keys.
+     *
+     * @property array
+     */
     private $superglobals = ['_SERVER', '_GET', '_POST', '_FILES', '_COOKIE', '_SESSION', '_REQUEST', '_ENV', 'GLOBALS'];
 
     /**
@@ -80,6 +87,7 @@ class Analyzer implements SIAnalyzer {
             if ($this->mayBeSusceptible($Node, $config)) {
                 $this->analyzeExtractTarget($Node->args[0], $config);
             } else {
+                // @todo this is not accurate; just because it is not susceptible does not mean using EXTR_SKIP
                 $config->usage = '\\StopInjection\\Analyzer\\Usage\\SecureUsage';
                 $config->details[] = $this->getMessage(self::SEC_USING_EXTR_SKIP);
             }

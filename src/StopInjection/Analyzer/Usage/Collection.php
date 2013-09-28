@@ -17,7 +17,18 @@ use \Iterator;
 
 class Collection implements Iterator, SIUsageCollection {
 
+    /**
+     * The actual storage of the Usage instances
+     *
+     * @property array
+     */
     private $collection = [];
+
+    /**
+     * The position the iterator is currently pointing at
+     *
+     * @property integer
+     */
     private $pos = 0;
 
     /**
@@ -39,30 +50,27 @@ class Collection implements Iterator, SIUsageCollection {
     }
 
     /**
+     * Will return the current position of iterator pointer
      *
+     * @return integer
      */
     public function key() {
         return $this->pos;
     }
 
     /**
-     * (PHP 5 &gt;= 5.0.0)<br/>
-     * Checks if current position is valid
      *
-     * @link http://php.net/manual/en/iterator.valid.php
-     * @return boolean The return value will be casted to boolean and then evaluated.
-     * Returns true on success or false on failure.
+     *
+     * @return boolean
      */
     public function valid() {
         return $this->pos < $this->count();
     }
 
     /**
-     * (PHP 5 &gt;= 5.0.0)<br/>
-     * Rewind the Iterator to the first element
+     * Will reset the position of the iterator
      *
-     * @link http://php.net/manual/en/iterator.rewind.php
-     * @return void Any returned value is ignored.
+     * @return void
      */
     public function rewind() {
         $this->pos = 0;
@@ -81,6 +89,7 @@ class Collection implements Iterator, SIUsageCollection {
      * Stores a Usage in the collection.
      *
      * @param \StopInjection\Analyzer\Usage $Usage
+     * @return void
      */
     public function add(SIUsage $Usage) {
         $this->collection[] = $Usage;
@@ -98,6 +107,10 @@ class Collection implements Iterator, SIUsageCollection {
         return isset($this->collection[$index]) ? $this->collection[$index] : null;
     }
 
+    /**
+     * @param \StopInjection\Analyzer\UsageCollection $Collection
+     * @return void
+     */
     public function merge(SIUsageCollection $Collection) {
         foreach($Collection as $Usage) {
             $this->add($Usage);

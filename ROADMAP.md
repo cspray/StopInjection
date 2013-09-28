@@ -17,6 +17,7 @@
 - Allowing the configuration of SpraySole to determine the type of printer and other various options
 - Allow support for outputting multiple report formats
 
-# 0.4.0 - Variable extract support
+# 0.4.0 - Inspection Module and Variable extract support
 
+- Add a module to abstract the inspection and details of that inspection for a targeted analysis
 - Add support for analyzing dynamic use of the extract function (e.g., `call_user_func('extract', $arr)`)

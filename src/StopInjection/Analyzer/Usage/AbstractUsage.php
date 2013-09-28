@@ -16,8 +16,20 @@ use \StopInjection\Analyzer\Usage as SIUsage;
 
 abstract class AbstractUsage implements SIUsage {
 
+    /**
+     * The node associated to the usage
+     *
+     * @property \PHPParser_Node
+     */
     private $Node;
+
+    /**
+     * A numerically indexed array of strings detailing the analysis of this usage
+     *
+     * @property array
+     */
     private $details;
+
 
     /**
      * @param \PHPParser_Node $Node

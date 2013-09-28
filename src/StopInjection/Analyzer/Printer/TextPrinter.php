@@ -1,8 +1,11 @@
 <?php
+
 /**
  * 
- * @author Charles Sprayberry
+ * @author  Charles Sprayberry
  * @license See LICENSE in source root
+ * @version 0.1
+ * @since   0.1
  */
 
 namespace StopInjection\Analyzer\Printer;
@@ -24,6 +27,14 @@ class TextPrinter implements SIReportPrinter {
         return $this->getOutput($Report);
     }
 
+    /**
+     *
+     *
+     * @param \StopInjection\Analyzer\Report $Report
+     * @return string
+     *
+     * @todo HUGE CRAP! Must refactor soon!
+     */
     private function getOutput(SIReport $Report) {
         $out = $this->getFileHeader($Report);
         if (!$Report->getAllUsage()->count()) {
@@ -45,11 +56,17 @@ TEXT;
 End of report
 TEXT;
 
-
         return $out;
     }
 
-
+    /**
+     *
+     *
+     * @param \StopInjection\Analyzer\Report $Report
+     * @return string
+     *
+     * @todo HUGE CRAP! Must refactor soon!
+     */
     private function getFileHeader(SIReport $Report) {
         $name = $Report->getName();
         $desc = $Report->getDescription();
@@ -75,6 +92,15 @@ Total usages found:         {$allCount}
 TEXT;
     }
 
+    /**
+     *
+     *
+     * @param \StopInjection\Analyzer\UsageCollection $Collection
+     * @param string $name
+     * @return string
+     *
+     * @todo HUGE CRAP! Even more than getFileHeader! Must refactor soon!
+     */
     private function getUsageDetails(SIUsageCollection $Collection, $name) {
         $out = <<<TEXT
 
@@ -112,6 +138,5 @@ TEXT;
 
         return $out;
     }
-
 
 }
